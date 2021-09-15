@@ -60,17 +60,7 @@ class DetailsController {
 	@GetMapping("/products/{id}/detailsV1")
 	public ProductDetail getProductDetails(@PathVariable Integer id) {
 
-		InstanceInfo service = eurekaClient
-				.getApplication("reviews")
-				.getInstances()
-				.get(0);
-
-		String hostName = service.getHostName();
-		int port = service.getPort();
-
-		//...
-		// RestTemplate, HTTP등을 이용하여 Review에서 정보를 받아와야함.
-		// details.setReviews(...);
+		// RestTemplate 를 이용한 예제 작성 예정 (Load Balancer 튜토리얼에서 작성 예정
 
 		Optional<Product> product = repository.findById(id);
 		ProductDetail details = new ProductDetail();
